@@ -2,7 +2,7 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-
+import logging
 from datetime import datetime, timezone, timedelta
 
 from functools import wraps
@@ -12,9 +12,10 @@ from flask_restx import Api, Resource, fields
 
 import jwt
 
-from .models import db, Users, JWTTokenBlocklist
+from .models import db, Users, JWTTokenBlocklist,Questions
 from .config import BaseConfig
 import requests
+import json
 
 rest_api = Api(version="1.0", title="Users API")
 
@@ -36,6 +37,9 @@ user_edit_model = rest_api.model('UserEditModel', {"userID": fields.String(requi
                                                    "username": fields.String(required=True, min_length=2, max_length=32),
                                                    "email": fields.String(required=True, min_length=4, max_length=64)
                                                    })
+
+question_model = rest_api.model('QuestionModel', {"questionNumber": fields.String (required=True, min_length=1, max_length=32)
+                                                  })
 
 
 """
@@ -240,3 +244,36 @@ class GitHubLogin(Resource):
                     "username": user_json['username'],
                     "token": token,
                 }}, 200
+    
+    @rest_api.route('/api/users/Questions')
+    class Questions(Resource):
+
+    # @rest_api.expect(Questions, validate=True)
+        def get(self):
+
+            #req_data = request.get_json()
+            questions = Questions.get_questions()
+            return {"success": True,
+                    "Questions": questions.toJSON()}, 200
+
+    @rest_api.route('/api/users/QuestionAnswers',methods=['POST'])
+    class Questions(Resource):
+
+        @rest_api.expect(question_model, validate=True)
+        def post(self):
+            req_data = request.get_json()
+            logging.debug("Valid Question Number:"+ json.dumps(req_data))           
+            _question_number = req_data.get('questionNumber')
+            logging.debug("Valid Question Number:"+_question_number)
+            # Check if question_number is None or not provided in the request
+            # if _question_number is None:
+            #     return {"error": "questionNumber is missing in the request data"}, 400
+            logging.debug("Before Questions.get_by_QNum:"+_question_number);
+            questionanswers = Questions.get_by_QNum(_question_number);
+                #questionanswers = Questions.get_by_id(questionNumber);
+
+            if questionanswers is None:
+                return {"error": "Question not found"}, 404
+
+            return {"success": True,
+                    "Questions": questionanswers.toJSON()}, 200

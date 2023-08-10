@@ -2,7 +2,7 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-
+import logging
 from datetime import datetime
 
 import json
@@ -11,7 +11,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
-
+logging.basicConfig(level=logging.DEBUG)
 
 class Users(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
@@ -83,3 +83,49 @@ class JWTTokenBlocklist(db.Model):
     def save(self):
         db.session.add(self)
         db.session.commit()
+
+class Questions(db.Model):
+    questionNumber = db.Column(db.Integer(), primary_key=True)
+    question = db.Column(db.Text(), nullable=False)
+    choices = db.Column(db.Text(), nullable=False)
+ 
+    def __repr__(self):
+        return f"Question Number {self.questionNumber}"
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_by_id(cls, id):
+        return cls.query.get_or_404(id)
+
+    @classmethod
+    def get_by_QNum(cls, questionNumber):
+        # Convert the question_number_str to an integer
+
+        try:
+            question_num = int(questionNumber)
+            logging.debug("get_by_QNum - Valid Question Number:"+str(question_num))           
+        except ValueError:
+            # Handle the case when the question_number_str cannot be converted to an integer
+            print("Invalid question number:", questionNumber)
+            logging.debug("get_by_QNum - Valid Question Number:"+question_num)
+        return cls.query.filter_by(questionNumber=question_num).first()
+    
+    @classmethod
+    def get_questions(cls):
+        return cls.query.all()
+
+    def toDICT(self):
+
+        cls_dict = {}
+        cls_dict['questionNumber'] = self.questionNumber
+        cls_dict['question'] = self.question
+        cls_dict['choices'] = self.choices
+
+        return cls_dict
+
+    def toJSON(self):
+
+        return json.dumps(self.toDICT());

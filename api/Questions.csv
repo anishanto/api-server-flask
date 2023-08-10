@@ -1,0 +1,65 @@
+questionNumber,question,choices
+1,What is \( 10 \% \) of 470 ?,"A) 37, B) 47, C) 423, D) 460"
+2,"\[
+4 x+6=18
+\]
+Which equation has the same solution as the given equation?","A) \( 4 x=108 \), B) \( 4 x=24 \), C) \( 4 x=12 \), D) \( 4 x=3 \)"
+3,"The total cost, in dollars, to rent a surfboard consists of a \( \$ 25 \) service fee and a \( \$ 10 \) per hour rental fee. A person rents a surfboard for \( t \) hours and intends to spend a maximum of \( \$ 75 \) to rent the surfboard. Which inequality represents this situation?","A) \( 10 t \leq 75 \), B) \( 10+25 t \leq 75 \), C) \( 25 t \leq 75 \), D) \( 25+10 t \leq 75 \)"
+4,The function \( g \) is defined by \( g(x)=x^{2}+9 \). For which value of \( x \) is \( g(x)=25 \) ?,"A) 4, B) 5, C) 9, D) 13"
+5,"Each face of a fair 14-sided die is labeled with a number from 1 through 14, with a different number appearing on each face. If the die is rolled one time, what is the probability of rolling a 2 ?","A) \( \frac{1}{14} \), B) \( \frac{2}{14} \), C) \( \frac{12}{14} \), D) \( \frac{13}{14} \)"
+6,"A printer produces posters at a constant rate of 42 posters per minute. At what rate, in posters per hour, does the printer produce the posters?",
+7,\( f(x)=7 x+2 \). What is the value of \( f(x) \) when \( x=4 \) ?,
+8,"A teacher is creating an assignment worth 70 points. The assignment will consist of questions worth 1 point and questions worth 3 points. Which equation represents this situation, where \( x \) represents the number of 1-point questions and \( y \) represents the number of 3-point questions?","A) \( 4 x y=70 \), B) \( 4(x+y)=70 \), C) \( 3 x+y=70 \), D) \( x+3 y=70 \)"
+9,"Right triangles \( L M N \) and \( P Q R \) are similar, where \( L \) and \( M \) correspond to \( P \) and \( Q \), respectively. Angle \( M \) has a measure of \( 53^{\circ} \). What is the measure of angle \( Q \) ?","A) \( 37^{\circ} \), B) \( 53^{\circ} \), C) \( 127^{\circ} \), D) \( 143^{\circ} \)"
+10,"\[
+\begin{array}{c}
+y=-3 x \\
+4 x+y=15
+\end{array}
+\]
+The solution to the given system of equations is \( (x, y) \). What is the value of \( x \) ?","A) 1, B) 5, C) 15, D) 45"
+11,Which of the following equations is the most appropriate linear model for the data shown in the scatterplot?,"A) \( y=-1.9 x-10.1 \), B) \( y=-1.9 x+10.1 \), C) \( y=1.9 x-10.1 \), D) \( y=1.9 x+10.1 \)"
+12,"The graph of \( y=f(x) \) is shown, where the function \( f \) is defined by \( f(x)=a x^{3}+b x^{2}+c x+d \) and \( a, b, c \), and \( d \) are constants. For how many values of \( x \) does \( f(x)=0 \) ?","A) One, B) Two, C) Three, D) Four"
+13,"Vivian bought party hats and cupcakes for \( \$ 71 \). Each package of party hats cost \( \$ 3 \), and each cupcake cost \( \$ 1 \). If Vivian bought 10 packages of party hats, how many cupcakes did she buy?",
+14,"\[
+z^{2}+10 z-24=0
+\]
+What is one of the solutions to the given equation?",
+15,"Bacteria are growing in a liquid growth medium. There were 300,000 cells per milliliter during an initial observation. The number of cells per milliliter doubles every 3 hours. How many cells per milliliter will there be 15 hours after the initial observation?","A) \( 1,500,000 \), B) \( 2,400,000 \), C) \( 4,500,000 \), D) \( 9,600,000 \)"
+16,Which expression is equivalent to \( 6 x^{8} y^{2}+12 x^{2} y^{2} \) ?,"A) \( 6 x^{2} y^{2}\left(2 x^{6}\right) \), B) \( 6 x^{2} y^{2}\left(x^{4}\right) \), C) \( 6 x^{2} y^{2}\left(x^{6}+2\right) \), D) \( 6 x^{2} y^{2}\left(x^{4}+2\right) \)"
+17,"A neighborhood consists of a 2-hectare park and a 35-hectare residential area. The total number of trees in the neighborhood is 3,934. The equation \( 2 x+35 y=3,934 \) represents this situation. Which of the following is the best interpretation of \( x \) in this context?","A) The average number of trees per hectare in the park, B) The average number of trees per hectare in the residential area, C) The total number of trees in the park, D) The total number of trees in the residential area"
+18,"The graph shows the relationship between the number of shares of stock from Company A, \( x \), and the number of shares of stock from Company B, \( y \), that Simone can purchase. Which equation could represent this relationship?","A) \( y=8 x+12 \), B) \( 8 x+12 y=480 \), C) \( y=12 x+8 \), D) \( 12 x+8 y=480 \)"
+19,"Circle \( A \) has a radius of \( 3 n \) and circle \( B \) has a radius of \( 129 n \), where \( n \) is a positive constant. The area of circle \( B \) is how many times the area of circle \( A \) ?","A) 43, B) 86, C) 129, D) 1,849"
+20,"\begin{tabular}{|c|c|}
+\hline Data value & Frequency \\
+\hline 6 & 3 \\
+\hline 7 & 3 \\
+\hline 8 & 8 \\
+\hline 9 & 8 \\
+\hline 10 & 9 \\
+\hline 11 & 11 \\
+\hline 12 & 9 \\
+\hline 13 & 0 \\
+\hline 14 & 6 \\
+\hline
+\end{tabular}
+The frequency table summarizes the 57 data values in a data set. What is the maximum data value in the data set?",
+22,"The measure of angle \( R \) is \( \frac{2 \pi}{3} \) radians. The measure of angle \( T \) is \( \frac{5 \pi}{12} \) radians greater than the measure of angle \( R \). What is the measure of angle \( T \), in degrees?","A) 75, B) 120, C) 195, D) 390"
+23,"A certain town has an area of 4.36 square miles. What is the area, in square yards, of this town? (1 mile \( =1,760 \) yards)","A) 404, B) 7,674, C) 710,459, D) \( 13,505,536 \)"
+24,"\begin{tabular}{|c|c|}
+\hline\( x \) & \( y \) \\
+\hline 18 & 130 \\
+\hline 23 & 160 \\
+\hline 26 & 178 \\
+\hline
+\end{tabular}
+For line \( h \), the table shows three values of \( x \) and their corresponding values of \( y \). Line \( k \) is the result of translating line \( h \) down 5 units in the \( x y \)-plane. What is the \( x \)-intercept of line \( k \) ?","A) \( \left(-\frac{26}{3}, 0\right) \), B) \( \left(-\frac{9}{2}, 0\right) \), C) \( \left(-\frac{11}{3}, 0\right) \), D) \( \left(-\frac{17}{6}, 0\right) \)"
+25,"In the \( x y \)-plane, the graph of the equation \( y=-x^{2}+9 x-100 \) intersects the line \( y=c \) at exactly one point. What is the value of \( c \) ?","A) \( -\frac{481}{4} \), B) -100, C) \( -\frac{319}{4} \), D) \( -\frac{9}{2} \)"
+26,"\[
+\begin{array}{c}
+2 x+3 y=7 \\
+10 x+15 y=35
+\end{array}
+\]
+For each real number \( r \), which of the following points lies on the graph of each equation in the \( x y \)-plane for the given system?","A) \( \left(\frac{r}{5}+7,-\frac{r}{5}+35\right) \), B) \( \left(-\frac{3 r}{2}+\frac{7}{2}, r\right) \), C) \( \left(r, \frac{2 r}{3}+\frac{7}{3}\right) \), D) \( \left(r,-\frac{3 r}{2}+\frac{7}{2}\right) \)"
+27,"The perimeter of an equilateral triangle is 624 centimeters. The height of this triangle is \( k \sqrt{3} \) centimeters, where \( k \) is a constant. What is the value of \( k \) ?",
