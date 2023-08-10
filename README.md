@@ -1,14 +1,8 @@
 ## [Flask API Server](https://github.com/app-generator/api-server-flask)
 
-Simple **Flask API Boilerplate** enhanced with `JWT` authentication, `OAuth` via **GitHub**, `SqlAlchemy`, **SQLite** persistence and deployment scripts via Docker - Provided by **[AppSeed](https://appseed.us/)**. It has all the ready-to-use bare minimum essentials and `active versioning` and [support](https://appseed.us/support/).
+Simple **Flask API Boilerplate** enhanced with `JWT` authentication, `OAuth` via **GitHub**, `SqlAlchemy`, **SQLite** persistence, and deployment scripts via Docker. It has all the `ready-to-use` bare minimum essentials.
 
-<br />
-
-## 🚀 `PROMO` [Spring Boost Campaign](https://appseed.us/discounts/) `50%OFF`
-
-> The **discount is applicable to all products and licenses** (no stock limits) until `15.MAR`
-
-[![Spring Boost Campaign](https://user-images.githubusercontent.com/51070104/221118889-171c5afc-4d01-402b-8681-61b37338e26c.png)](https://appseed.us/discounts/)
+- 👉 [Support](https://appseed.us/support/) via **Discord & Email** provided by `AppSeed`. 
 
 <br />
 
@@ -21,8 +15,6 @@ Simple **Flask API Boilerplate** enhanced with `JWT` authentication, `OAuth` via
 - 🆕 `OAuth` for **Github**
   - Full-stack ready with [React Soft Dashboard](https://github.com/app-generator/react-soft-ui-dashboard)
 - ✅ **Docker**, `Unitary tests`
-- 🚀 `Instant Deploy` on RENDER using [Python Deployer](https://github.com/app-generator/deploy-automation-render)
-  - `python.exe deployer.py flask <THIS_REPO> "run:app"`
   
 <br />
 
