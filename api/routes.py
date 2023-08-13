@@ -7,7 +7,7 @@ from datetime import datetime, timezone, timedelta
 
 from functools import wraps
 
-from flask import request
+from flask import request,jsonify
 from flask_restx import Api, Resource, fields
 
 import jwt
@@ -252,9 +252,9 @@ class GitHubLogin(Resource):
         def get(self):
 
             #req_data = request.get_json()
-            questions = Questions.get_questions()
+            _questions = Questions.get_questions()
             return {"success": True,
-                    "Questions": questions.toJSON()}, 200
+                    "Questions": _questions}, 200
 
     @rest_api.route('/api/users/QuestionAnswers',methods=['POST'])
     class Questions(Resource):

@@ -86,8 +86,8 @@ class JWTTokenBlocklist(db.Model):
 
 class Questions(db.Model):
     questionNumber = db.Column(db.Integer(), primary_key=True)
-    question = db.Column(db.Text(), nullable=False)
-    choices = db.Column(db.Text(), nullable=False)
+    question = db.Column(db.Text(), nullable=True)
+    choices = db.Column(db.Text(), nullable=True)
  
     def __repr__(self):
         return f"Question Number {self.questionNumber}"
@@ -115,7 +115,30 @@ class Questions(db.Model):
     
     @classmethod
     def get_questions(cls):
-        return cls.query.all()
+        questions_tuple = cls.query.all() 
+ 
+        #questions_tuple = (question1, question2, ...)  # Replace with actual instances
+
+        # Convert each question object to a dictionary
+        questions_dict_list = [
+            {
+                "questionNumber": question.questionNumber,
+                "question": question.question,
+                "choices": question.choices
+            }
+            for question in questions_tuple
+        ]
+
+        # Convert the list of dictionaries to a JSON-formatted string
+        questions_json_string = json.dumps(questions_dict_list)
+
+
+        logging.debug("get_questions:"+questions_json_string)       
+         # Convert each question object to a dictionary and then to JSON
+
+        # Now you can return the list of JSON-formatted questions
+        return questions_dict_list  
+
 
     def toDICT(self):
 
