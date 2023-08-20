@@ -96,6 +96,7 @@ class Questions(db.Model):
         db.session.add(self)
         db.session.commit()
 
+
     @classmethod
     def get_by_id(cls, id):
         return cls.query.get_or_404(id)
@@ -146,6 +147,82 @@ class Questions(db.Model):
         cls_dict['questionNumber'] = self.questionNumber
         cls_dict['question'] = self.question
         cls_dict['choices'] = self.choices
+
+        return cls_dict
+
+    def toJSON(self):
+
+        return json.dumps(self.toDICT());
+
+class UserAnswers(db.Model):
+    id = db.Column(db.Integer(), primary_key=True)
+    userid = db.Column(db.Integer(), nullable=False)
+    questionNumber = db.Column(db.Text(), nullable=False)  # Match the column name
+    AnswerChoice = db.Column(db.Text(), nullable=False)
+ 
+    def __repr__(self):
+        return f"UserAnswer {self.id}"
+
+    def save(self):
+        try:
+            db.session.add(self)
+            db.session.commit()
+            logging.debug("Saved UserAnswer to database: " + str(self))
+        except Exception as e:
+            db.session.rollback()
+            logging.error("Error saving UserAnswer to database: " + str(e))
+            raise
+
+    @classmethod
+    def get_by_id(cls, id):
+        return cls.query.get_or_404(id)
+
+    @classmethod
+    def get_by_QNum(cls, userid,questionNumber):
+        # Convert the question_number_str to an integer
+
+        try:
+            question_num = int(questionNumber)
+            logging.debug("get_by_QNum - Valid Question Number:"+str(question_num))           
+        except ValueError:
+            # Handle the case when the question_number_str cannot be converted to an integer
+            print("Invalid question number:", questionNumber)
+            logging.debug("get_by_QNum - Valid Question Number:"+question_num)
+        return cls.query.filter_by(userid=userid , questionNumber=question_num).first()
+    
+    @classmethod
+    def get_useranswers(cls,userid):
+        useranswers_tuple = cls.query.filter_by(userid=userid) ;
+ 
+        #questions_tuple = (question1, question2, ...)  # Replace with actual instances
+
+        # Convert each useranswer object to a dictionary
+        useranswers_dict_list = [
+            {
+                "questionNumber": useranswer.questionNumber,
+                "AnswerChoice": useranswer.AnswerChoice,
+                "userid": useranswer.id
+            }
+            for useranswer in useranswers_tuple
+        ]
+
+        # Convert the list of dictionaries to a JSON-formatted string
+        useranswer_json = json.dumps(useranswers_dict_list)
+
+
+        logging.debug("get_questions:"+useranswer_json)       
+         # Convert each question object to a dictionary and then to JSON
+
+        # Now you can return the list of JSON-formatted questions
+        return useranswers_dict_list;  
+
+
+    def toDICT(self):
+
+        cls_dict = {}
+        cls_dict['questionNumber'] = self.questionNumber
+        cls_dict['AnswerChoice'] = self.AnswerChoice
+        cls_dict['userid'] = self.userid
 
         return cls_dict
 
