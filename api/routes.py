@@ -12,7 +12,7 @@ from flask_restx import Api, Resource, fields
 
 import jwt
 
-from .models import db, Users, JWTTokenBlocklist,Questions
+from .models import db, Users, JWTTokenBlocklist,Questions,UserAnswers
 from .config import BaseConfig
 import requests
 import json
@@ -41,6 +41,10 @@ user_edit_model = rest_api.model('UserEditModel', {"userID": fields.String(requi
 question_model = rest_api.model('QuestionModel', {"questionNumber": fields.String (required=True, min_length=1, max_length=32)
                                                   })
 
+useranswer_model = rest_api.model('UserAnswersModel', {"userId": fields.String(required=True, min_length=1, max_length=32),
+                                                   "questionNumber": fields.String(required=True, min_length=1, max_length=32),
+                                                   "answerChoice": fields.String(required=True, min_length=1, max_length=32)
+                                                   })                            
 
 """
    Helper function for JWT token required
@@ -277,3 +281,32 @@ class GitHubLogin(Resource):
 
             return {"success": True,
                     "Questions": questionanswers.toJSON()}, 200
+        
+
+    @rest_api.route('/api/users/UserAnswers',methods=['POST'])
+    class UserAnswers(Resource):
+
+        @rest_api.expect(useranswer_model, validate=True)
+        def post(self):
+            try:
+                data = request.json  # Assuming the client sends data in JSON format
+                user_id = data.get('userId')
+                questionNumber = data.get('questionNumber')
+                answer_choice = data.get('answerChoice')
+
+                if user_id is None or questionNumber is None or answer_choice is None:
+                    return jsonify({"error": "Missing data"}), 400
+
+                new_answer = UserAnswers(userid=user_id, questionNumber=questionNumber, AnswerChoice=answer_choice)
+                new_answer.save()
+
+                return {"success": True,
+                        "User answer saved successfully": new_answer.toJSON()}, 200
+
+            except Exception as e:
+                return {"error": "User answer save failed:" + str(e)}, 500                
+
+
+
+
+
